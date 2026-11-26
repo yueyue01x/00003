@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5ECE8">
+<meta name="description" content="五个恋爱情感测试，五件恋爱手帐小物：人格牌、恋人档案、心动体检报告、两人心动契约、恋爱电影票。每个十五题，两分钟测完。">
+<title>恋爱情感测试合集</title>
+<style>
+  :root {
+    --bg: #F5ECE8; --paper: #FFFDFB; --ink: #3B2A2F; --ink-2: #6E5A60; --ink-3: #A08E93;
+    --line: rgba(59, 42, 47, .12); --rose: #D2557A;
+    --serif: "Noto Serif SC", "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+    --sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; font-family: var(--sans); color: var(--ink); line-height: 1.8; -webkit-font-smoothing: antialiased;
+    background-color: var(--bg);
+    background-image: linear-gradient(rgba(200, 110, 130, .11) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 110, 130, .11) 1px, transparent 1px);
+    background-size: 24px 24px; background-position: -1px -1px;
+  }
+  main { max-width: 1040px; margin: 0 auto; padding: 56px 20px 72px; }
+  header { max-width: 620px; }
+  h1 { margin: 0; font-family: var(--serif); font-size: clamp(36px, 9.6vw, 60px); font-weight: 900; line-height: 1.15; }
+  h1 span { display: block; margin-bottom: 8px; font-size: .44em; font-weight: 500; color: var(--ink-2); letter-spacing: .06em; }
+  .lead { margin: 22px 0 0; padding-top: 18px; border-top: 1.5px dashed rgba(59, 42, 47, .28); color: var(--ink-2); font-size: 16px; max-width: 30em; }
+  .list { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 18px; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .list { grid-template-columns: repeat(2, 1fr); } }
+  .card {
+    position: relative; display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; align-items: center; height: 100%;
+    padding: 20px 18px; background: var(--paper); border-radius: 20px; color: inherit; text-decoration: none;
+    box-shadow: 0 16px 32px -24px rgba(59, 42, 47, .5); transition: transform .2s, box-shadow .2s;
+  }
+  .card::before {
+    content: ""; position: absolute; top: -10px; left: 28px; width: 76px; height: 20px; transform: rotate(-4deg);
+    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .3) 0 6px, transparent 6px 13px), var(--tape);
+  }
+  .card:hover { transform: translateY(-2px) rotate(-.3deg); box-shadow: 0 20px 36px -22px rgba(59, 42, 47, .55); }
+  .card:focus-visible { outline: 2.5px solid var(--c); outline-offset: 3px; }
+  .art { position: relative; height: 140px; display: grid; place-items: center; }
+  .body h2 { margin: 0 0 4px; font-family: var(--serif); font-size: 19px; line-height: 1.45; }
+  .body p { margin: 0; font-size: 14px; color: var(--ink-2); line-height: 1.75; }
+  .meta { margin-top: 10px !important; font-size: 13px !important; font-weight: 700; color: var(--c) !important; }
+  .badge { display: inline-block; margin-left: 6px; padding: 0 8px; font-family: var(--sans); font-size: 12px; font-weight: 700; color: #fff; background: var(--c); border-radius: 999px; vertical-align: 3px; }
+  footer { margin-top: 40px; font-size: 13px; color: var(--ink-3); }
+
+  /* 塔罗牌 */
+  .a-tarot { width: 78px; height: 126px; border-radius: 9px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 10px 6px;
+    background: radial-gradient(70% 40% at 50% 45%, rgba(217, 184, 114, .2), transparent), #272148; color: #D9B872; font-family: var(--serif); font-weight: 900;
+    box-shadow: inset 0 0 0 5px #272148, inset 0 0 0 6px #D9B872, 0 10px 18px -10px rgba(39, 33, 72, .7); transform: rotate(-5deg); }
+  .a-tarot i { font-style: normal; font-size: 11px; }
+  .a-tarot b { width: 40px; height: 40px; display: grid; place-items: center; border: 1.5px solid #D9B872; border-radius: 50%; font-size: 22px; }
+  .a-tarot em { font-style: normal; font-size: 10px; width: 100%; text-align: center; background: #D9B872; color: #272148; border-radius: 2px; }
+  /* 拍立得 */
+  .a-polaroid { position: relative; width: 86px; padding: 6px 6px 22px; background: #fff; box-shadow: 0 0 0 1px var(--line), 0 10px 18px -10px rgba(59, 42, 47, .5); transform: rotate(4deg); }
+  .a-polaroid span { position: relative; display: block; height: 84px; overflow: hidden; background: linear-gradient(#F8E1E8, #D2557A); }
+  .a-polaroid span::before { content: ""; position: absolute; left: 50%; top: 14px; width: 28px; height: 28px; margin-left: -14px; border-radius: 50%; background: rgba(255, 255, 255, .9); }
+  .a-polaroid span::after { content: ""; position: absolute; left: 50%; bottom: -14px; width: 60px; height: 50px; margin-left: -30px; border-radius: 30px 30px 0 0; background: rgba(255, 255, 255, .9); }
+  .a-polaroid i { position: absolute; left: 0; right: 0; bottom: 3px; font-style: normal; font-family: var(--serif); font-size: 11px; font-weight: 700; text-align: center; }
+  /* 体检报告 */
+  .a-report { position: relative; width: 90px; height: 122px; padding: 10px 9px; background: #fff; border-top: 5px solid #2F6F9F; box-shadow: 0 0 0 1px var(--line), 0 10px 18px -10px rgba(30, 50, 70, .5); transform: rotate(-3deg); }
+  .a-report b { display: block; font-family: var(--serif); font-size: 11px; font-weight: 900; text-align: center; margin-bottom: 6px; }
+  .a-report i { display: flex; justify-content: space-between; height: 11px; margin-top: 3px; border-bottom: 1px solid var(--line); }
+  .a-report i::before { content: ""; width: 34px; height: 4px; margin-top: 3px; background: rgba(59, 42, 47, .25); border-radius: 2px; }
+  .a-report i::after { content: ""; width: 12px; height: 4px; margin-top: 3px; background: rgba(59, 42, 47, .35); border-radius: 2px; }
+  .a-report i.up::after { background: #D2423A; }
+  .a-report em { position: absolute; right: -10px; bottom: -8px; width: 38px; height: 38px; display: grid; place-items: center; font-style: normal; font-family: var(--serif); font-size: 11px; font-weight: 900; color: #D2423A; border: 2px solid #D2423A; border-radius: 50%; transform: rotate(-14deg); background: rgba(255, 255, 255, .8); }
+  /* 心动契约 */
+  .a-pair { display: flex; align-items: center; gap: 0; }
+  .a-pair b { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; color: #fff; font-family: var(--serif); font-size: 19px; font-weight: 900; }
+  .a-pair svg { width: 40px; height: 24px; color: #C2414F; }
+  /* 电影票 */
+  .a-ticket { position: relative; width: 108px; height: 64px; display: grid; grid-template-columns: 1fr 30px; background: #FFF8EE; border-radius: 8px; box-shadow: 0 0 0 1px var(--line), 0 10px 18px -10px rgba(59, 42, 47, .5); transform: rotate(-6deg); }
+  .a-ticket span { padding: 8px 6px 0 10px; border-right: 1.5px dashed rgba(59, 42, 47, .3); font-family: var(--serif); font-size: 10px; font-weight: 900; line-height: 1.3; }
+  .a-ticket span::before { content: "心动影院"; display: block; font-family: var(--sans); font-size: 8px; color: #B5473A; margin-bottom: 3px; }
+  .a-ticket i { margin: 12px 6px; background: repeating-linear-gradient(90deg, var(--ink) 0 1.5px, transparent 1.5px 3px, var(--ink) 3px 5px, transparent 5px 6.5px); }
+  .a-ticket::before, .a-ticket::after { content: ""; position: absolute; right: 23px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
+  .a-ticket::before { top: -6px; } .a-ticket::after { bottom: -6px; }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1><span>五件恋爱手帐小物，记下五个你</span>恋爱情感测试合集</h1>
+    <p class="lead">每个测试十五道恋爱里的小选择，两分钟测完。结果是一件可以写上名字、生成海报的手帐小物。情侣适配度可以两个人一起测。</p>
+  </header>
+
+  <ul class="list">
+    <li><a class="card" style="--c:#4B3F7A;--tape:rgba(180,165,230,.8)" href="01-love-personality.html">
+      <span class="art" aria-hidden="true"><span class="a-tarot"><i>VII</i><b>恋</b><em>人格牌</em></span></span>
+      <span class="body"><h2>测你的恋爱人格</h2>
+        <p>翻开一张专属的恋爱人格牌：小太阳、恋爱脑、清醒独立，还是冷面深情？</p>
+        <p class="meta">15 道题，12 张人格牌</p></span></a></li>
+    <li><a class="card" style="--c:#D2557A;--tape:rgba(245,175,190,.85)" href="02-attract-lover.html">
+      <span class="art" aria-hidden="true"><span class="a-polaroid"><span></span><i>TA的档案</i></span></span>
+      <span class="body"><h2>你容易吸引什么样的恋人</h2>
+        <p>测出你的恋爱磁场，调出那个最容易被你吸引的TA，附烂桃花预警。</p>
+        <p class="meta">15 道题，12 份恋人档案</p></span></a></li>
+    <li><a class="card" style="--c:#2F6F9F;--tape:rgba(150,195,225,.85)" href="03-love-checkup.html">
+      <span class="art" aria-hidden="true"><span class="a-report"><b>心动体检报告</b><i></i><i class="up"></i><i></i><i></i><i class="up"></i><i></i><em>已阅</em></span></span>
+      <span class="body"><h2>你的恋爱隐藏短板</h2>
+        <p>一份只供娱乐的心动体检报告：七项指数、诊断结果，还有短板背后的优点。</p>
+        <p class="meta">15 道题，12 种诊断</p></span></a></li>
+    <li><a class="card" style="--c:#C2414F;--tape:rgba(240,160,170,.85)" href="04-couple-match.html">
+      <span class="art" aria-hidden="true"><span class="a-pair"><b style="background:#C2414F">狗</b><svg viewBox="0 0 40 24"><path d="M1 12 C 10 0, 16 24, 20 12 S 30 0, 39 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 8 c-2-4-8-3-7 2 c1 3 7 6 7 6 s6-3 7-6 c1-5-5-6-7-2z" fill="currentColor"/></svg><b style="background:#3F6F94">猫</b></span></span>
+      <span class="body"><h2>情侣适配度测试<span class="badge">两人</span></h2>
+        <p>两个人各答各的，生成你们的心动契约：适配度、最合拍和要磨合的地方。</p>
+        <p class="meta">每人 15 道题，7 种情侣类型</p></span></a></li>
+    <li><a class="card" style="--c:#B5473A;--tape:rgba(240,190,120,.85)" href="05-love-script.html">
+      <span class="art" aria-hidden="true"><span class="a-ticket"><span>《你的<br>恋爱剧本》</span><i></i></span></span>
+      <span class="body"><h2>你的理想恋爱剧本</h2>
+        <p>领一张恋爱电影票：片名、场次、座位，还有属于你的名场面。</p>
+        <p class="meta">15 道题，12 部恋爱电影</p></span></a></li>
+  </ul>
+
+  <footer>每个测试的作答进度都会自动保存在你的浏览器里，可以随时回来接着答。</footer>
+</main>
+</body>
+</html>
